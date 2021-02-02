@@ -8,9 +8,7 @@ pipeline {
     stages {
         stage('Cloning git repo') {
             steps {
-                script {
-                    git clone 'https://github.com/k-charette/ec2-pipeline-setup'
-                }
+                sh 'git clone https://github.com/k-charette/ec2-pipeline-setup'
             }
         }
         stage('Building the image') {
