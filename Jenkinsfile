@@ -6,11 +6,11 @@ pipeline {
     }
     agent any
     stages {
-        stage('Cloning git repo') {
-            steps {
-                sh 'git clone https://github.com/k-charette/ec2-pipeline-setup'
-            }
-        }
+        // stage('Cloning git repo') {
+        //     steps {
+        //         sh 'git clone https://github.com/k-charette/ec2-pipeline-setup'
+        //     }
+        // }
         stage('Building the image') {
             steps{
                 script {
