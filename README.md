@@ -26,3 +26,10 @@ Follow the documentation below on how to setup an account and create an EC2 inst
 
 **Note : Before running the Jenkins, make sure your 8080 port is available. Another option is running Jenkins on a different port. Inside the configuration file located /etc/sysconfig/jenkins just change JENKINS_PORT. (The location in Debian based linux is /var/default/jenkins)**
 
+**Step 4: Jenkins Integration with Github**
+
+1. Ensure Git is installed on the EC2 instance by running `sudo yum install git -y`  
+2. From the **Github** repository go to Settings -> Webhooks -> Add webhook
+3. In the 'Payload URL' field, past the Jenkins environment URL. At the end of the URL add `/github-webhook/`. In the 'Content type' select `application/json` and leave the 'Secret' field empty. 
+4. Under 'Which events would you like to trigger this webhook?' choose 'Let me select individual events'. For this example I used 'Pull Requests' and 'Pushes. Make sure 'Active' is checked at the bottom. 
+5. From **Jenkins** create a new project. 
