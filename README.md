@@ -26,8 +26,9 @@ Follow the documentation below on how to setup an account and create an EC2 inst
 
 **Note : Before running the Jenkins, make sure your 8080 port is available. Another option is running Jenkins on a different port. Inside the configuration file located /etc/sysconfig/jenkins just change JENKINS_PORT. (The location in Debian based linux is /var/default/jenkins)**
 
-**Jenkins Integration with Github Webhooks**
+## Jenkins Integration with Github Webhooks ##
 -
+
 Following the documentation here: [https://plugins.jenkins.io/github/](https://plugins.jenkins.io/github/ "webhook") and [https://medium.com/faun/triggering-jenkins-build-on-push-using-github-webhooks-52d4361542d4](https://medium.com/faun/triggering-jenkins-build-on-push-using-github-webhooks-52d4361542d4 "github webhooks")
 
 1. Ensure Git is installed on the EC2 instance by running `sudo yum install git -y`  
@@ -41,9 +42,10 @@ Following the documentation here: [https://plugins.jenkins.io/github/](https://p
 
 ## Installing and Configuring Docker ##
 
-Following the documentation here:
-[https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html "aws docker")
+Following the documentation here: [https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html "aws docker")
 
-Adding a new line to see if webhook triggers
+
+## Building A Docker Image and Pushing to Dockerhub ##
+Following the documentation here: [https://dzone.com/articles/building-docker-images-to-docker-hub-using-jenkins#](https://dzone.com/articles/building-docker-images-to-docker-hub-using-jenkins#)
 
 ![](https://i.imgur.com/t5J3s02.png)
