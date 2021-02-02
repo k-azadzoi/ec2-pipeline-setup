@@ -1,5 +1,3 @@
-Please follow the live [document](https://docs.google.com/document/d/17OwlITE-yPWNj3Vi5RtQfz3ItvSkOfnbaVMnzlZyGTg)
-
 ## Per Scholas DevOps Case Study Information ##
 This is a project aimed to build a working CI/CD pipeline with the following tools: Git, Jenkins, Docker, Kubernetes, and Ansible. 
 
@@ -13,7 +11,7 @@ Follow the documentation below on how to setup an account and create an EC2 inst
 **Step 2 : Launch an EC2 Instance**
   
 1. Launch a EC2 Instance to host Jenkins.
-2. Create a Security Group [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group "create security group")
+2. Create a Security Group <br>[https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group "create security group")
 
 **Step 3 : Install and Configure Jenkins**
 
@@ -21,17 +19,10 @@ Follow the documentation below on how to setup an account and create an EC2 inst
 2. Ensure your packages are up to date <br> `sudo yum update -y`
 3. Download and Install Jenkins following the documentation here: <br> [https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos](https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos "jenkins installation docs")
 
-4. Start the Jenkins service and check the status <br> `sudo service jenkins start` <br>  `sudo service jenkins status` <br> If there is an output similar to the image below then Jenkins is running!
+4. Start the Jenkins service and check the status <br> Run `sudo service jenkins start` and then `sudo service jenkins status` <br> If there is an output similar to the image below then Jenkins is running!
 ![](https://i.imgur.com/zJ678Pl.png)
 
 5. Now finally using the IP address of the instance followed by `8080` You should see the **Getting Started** screen for Jenkins. 
 
-
-
-
-
-
-
-
-
+**Note : Before running the Jenkins, make sure your 8080 port is available. Another option is running Jenkins on a different port. Inside the configuration file located /etc/sysconfig/jenkins just change JENKINS_PORT. (The location in Debian based linux is /var/default/jenkins)**
 
