@@ -39,4 +39,4 @@ Following the documentation here: [https://plugins.jenkins.io/github/](https://p
 6. Click on Git and paste in your Github repository URL in 'Repository URL' field. 
 7. Click on the Build Triggers tab, then on the 'Github hook trigger for GITScm polling' and Save!
 
-![](https://i.imgur.com/qFFhKfl.png)
+![](https://i.imgur.com/t5J3s02.png)
