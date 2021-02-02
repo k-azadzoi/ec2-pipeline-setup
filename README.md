@@ -33,7 +33,8 @@ Following the documentation here: [https://plugins.jenkins.io/github/](https://p
 1. Ensure Git is installed on the EC2 instance by running `sudo yum install git -y`  
 2. From the **Github** repository go to Settings -> Webhooks -> Add webhook
 3. In the 'Payload URL' field, past the Jenkins environment URL. At the end of the URL add `/github-webhook/`. In the 'Content type' select `application/json` and leave the 'Secret' field empty. 
-4. Under 'Which events would you like to trigger this webhook?' choose 'Let me select individual events'. For this example I used 'Pull Requests' and 'Pushes'. Make sure 'Active' is checked at the bottom. 
+![](https://i.imgur.com/N9tokvb.png)
+4. Under 'Which events would you like to trigger this webhook?' I chose 'Just the push event' for this example, however you can select as many events as you want. 
 5. From **Jenkins** create a new project and click on the Source Code Management tab.
 6. Click on Git and paste in your Github repository URL in 'Repository URL' field. 
 7. Click on the Build Triggers tab, then on the 'Github hook trigger for GITScm polling' and Save!
