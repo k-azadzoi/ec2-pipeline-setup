@@ -38,3 +38,5 @@ Following the documentation here: [https://plugins.jenkins.io/github/](https://p
 5. From **Jenkins** create a new project and click on the Source Code Management tab.
 6. Click on Git and paste in your Github repository URL in 'Repository URL' field. 
 7. Click on the Build Triggers tab, then on the 'Github hook trigger for GITScm polling' and Save!
+
+![](https://i.imgur.com/qFFhKfl.png)
