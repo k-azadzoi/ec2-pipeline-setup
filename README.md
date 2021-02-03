@@ -1,11 +1,11 @@
-## General Overview of the Project##
+## General Overview of the Project ##
 This is a project aimed to build a working CI/CD pipeline with the following tools: Git, Jenkins, Docker, Kubernetes, and Ansible. 
 
 **Putting it all together let's understand the workflow!**
 
-- Developers will commit code to the app.
-- A webhook configured in GitHub will notify Jenkins and a build of the app will start.
-- The Jenkins pipeline job clones the app's github repository and start executing the Jenkinsfile.
+- Developers will commit code to the application's repository on Github.
+- A webhook configured in Github will notify Jenkins and a build of the app will start.
+- The Jenkins pipeline job clones the app's Github repository and start executing the Jenkinsfile.
 - Build step in the Jenkinsfile creates a Docker image(kcharette/ec2-pipeline) using the Dockerfile.
 - The image is given a tag and pushed to Docker Hub.
 - Ansible Playbook starts to deploy the Docker image to Kubernetes cluster with app_name, service_name and image_id variable.
@@ -58,5 +58,12 @@ Following the documentation here: [https://docs.aws.amazon.com/AmazonECS/latest/
 Following the documentation here: [https://dzone.com/articles/building-docker-images-to-docker-hub-using-jenkins#](https://dzone.com/articles/building-docker-images-to-docker-hub-using-jenkins#)
 
 ## Using Ansible with Jenkins ##
+The video here gives details on how to install Ansible with Jenkins: [https://www.youtube.com/watch?v=PRpEbFZi7nI&ab_channel=JavaHomeCloud](https://www.youtube.com/watch?v=PRpEbFZi7nI&ab_channel=JavaHomeCloud)
+
+1. Install the Ansible plugin on Jenkins
+2. Go to Global Tool Configuration and locate Ansible. 
+3. Add the Name and Path to ansible executables directory
+
+## Creating an Ansible Playbook  ##
 
 ![](https://i.imgur.com/t5J3s02.png)
