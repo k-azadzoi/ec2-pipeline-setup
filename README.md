@@ -1,5 +1,15 @@
-## Per Scholas DevOps Case Study Information ##
+## General Overview of the Project##
 This is a project aimed to build a working CI/CD pipeline with the following tools: Git, Jenkins, Docker, Kubernetes, and Ansible. 
+
+**Putting it all together let's understand the workflow!**
+
+- Developers will commit code to the app.
+- A webhook configured in GitHub will notify Jenkins and a build of the app will start.
+- The Jenkins pipeline job clones the app's github repository and start executing the Jenkinsfile.
+- Build step in the Jenkinsfile creates a Docker image(kcharette/ec2-pipeline) using the Dockerfile.
+- The image is given a tag and pushed to Docker Hub.
+- Ansible Playbook starts to deploy the Docker image to Kubernetes cluster with app_name, service_name and image_id variable.
+- The Ansible Playbook will read all the Kubernetes definitions for deployment/servive and create required components in the cluster.
 
 ## Installing and Configuring Jenkins on AWS  ##
 **Step 1 : Set up Prerequisites (make sure to have ver JDK 1.8+)**
@@ -27,7 +37,6 @@ Follow the documentation below on how to setup an account and create an EC2 inst
 **Note : Before running the Jenkins, make sure your 8080 port is available. Another option is running Jenkins on a different port. Inside the configuration file located /etc/sysconfig/jenkins just change JENKINS_PORT. (The location in Debian based linux is /var/default/jenkins)**
 
 ## Jenkins Integration with Github Webhooks ##
--
 
 Following the documentation here: [https://plugins.jenkins.io/github/](https://plugins.jenkins.io/github/ "webhook") and [https://medium.com/faun/triggering-jenkins-build-on-push-using-github-webhooks-52d4361542d4](https://medium.com/faun/triggering-jenkins-build-on-push-using-github-webhooks-52d4361542d4 "github webhooks")
 
@@ -47,5 +56,7 @@ Following the documentation here: [https://docs.aws.amazon.com/AmazonECS/latest/
 
 ## Building A Docker Image and Pushing to Dockerhub ##
 Following the documentation here: [https://dzone.com/articles/building-docker-images-to-docker-hub-using-jenkins#](https://dzone.com/articles/building-docker-images-to-docker-hub-using-jenkins#)
+
+## Using Ansible with Jenkins ##
 
 ![](https://i.imgur.com/t5J3s02.png)
