@@ -8,5 +8,11 @@
       dest: /usr/src/app
   # - name: delete the previous of kubernetes objects 
   #   command: kubectl delete -f /etc/kubernetes.yml
+  - name: start minikube
+    command: minikube start
+  - name: Clean Workspace
+    command: kubectl delete -f /usr/src/app/kubernetes.yml
+  - name: Deployment
+    command: kubectl apply -f /usr/src/app/kubernetes.yml
   - name: Create a Deployment by reading the definition from a local file
     command: kubectl apply -f /usr/src/app/kubernetes.yml
