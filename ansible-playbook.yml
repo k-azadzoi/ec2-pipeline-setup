@@ -1,8 +1,11 @@
 - hosts: webservers
   tasks:
-  - name: copy deployment file to kubernetes master 
-    copy:
-      src: kubernetes.yml
-      dest: /home/ec2-user/ec2-pipeline
-  - name: Create a Deployment by reading the definition from a local file
-    command: kubectl apply -f /home/ec2-user/ec2-pipeline
+  - name: upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+
+  - name: ensure git is at the lastest version
+    yum:
+      name: git
+      state: latest
