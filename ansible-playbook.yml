@@ -1,8 +1,6 @@
 - hosts: webservers
 
   tasks:
-  - name: Start Minikube if it's not running.
-    command: minikube start
   - name: copy deployment file to kubernetes master 
     copy:
       src: ./kubernetes.yml
