@@ -39,9 +39,10 @@ pipeline {
                 sh 'docker rmi $registry:$BUILD_NUMBER'
             }
         }
-        stage('Execute Ansible')
+        stage('Execute Ansible'){
             steps {
                 ansiblePlaybook credentialsId: 'private-key', installation: 'ansible', inventory: 'hosts.inv', playbook: 'ansible-playbook.yaml'
             }
+        }
     }
 }
