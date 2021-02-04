@@ -1,6 +1,5 @@
 - hosts: webservers
-  become: yes
-  become_user: root
+
   tasks:
   - name: Start Minikube if it's not running.
     command: minikube start
