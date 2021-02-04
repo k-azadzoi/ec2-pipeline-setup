@@ -2,17 +2,14 @@
   become: yes
   become_user: root
   tasks:
+  - name: Start Minikube if it's not running.
+    command: minikube start
+    when: "not minikube_status.stdout or 'Running' not in minikube_status.stdout"
   - name: copy deployment file to kubernetes master 
     copy:
       src: ./kubernetes.yml
-      dest: /usr/src/app
+      dest: /etc/kubernetes.yml
   # - name: delete the previous of kubernetes objects 
   #   command: kubectl delete -f /etc/kubernetes.yml
-  - name: start minikube
-    command: minikube start
-  - name: Clean Workspace
-    command: kubectl delete -f /usr/src/app/kubernetes.yml
-  - name: Deployment
-    command: kubectl apply -f /usr/src/app/kubernetes.yml
   - name: Create a Deployment by reading the definition from a local file
-    command: kubectl apply -f /usr/src/app/kubernetes.yml
+    command: kubectl apply -k etc/
