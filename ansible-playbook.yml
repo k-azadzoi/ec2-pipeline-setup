@@ -3,11 +3,11 @@
   tasks: 
     - name: Copy kubernetes YAML
       ansible.builtin.copy:
-        src: /kubernetes.yml
+        src: /App/kubernetes.yml
         dest: /etc/kubernetes.yml
         owner: root
         mode: 7777
     - name: Start minikube
       command: minikube Start
     - name: Apply kubernetes YAML
-      command: kubetcl create -f /kubernetes.yml
+      command: kubetcl create -f /App/kubernetes.yml
