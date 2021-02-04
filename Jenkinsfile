@@ -25,7 +25,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy the image') {
+        stage('Push the image') {
             steps{
                 script {
                     docker.withRegistry( '', registryCredential ) {
@@ -39,5 +39,9 @@ pipeline {
                 sh 'docker rmi $registry:$BUILD_NUMBER'
             }
         }
+        stage('Execute Ansible')
+            steps {
+                ansiblePlaybook credentialsId: 'private-key', installation: 'ansible', inventory: 'hosts.inv', playbook: 'ansible-playbook.yaml'
+            }
     }
 }
