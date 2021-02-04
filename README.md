@@ -3,13 +3,15 @@ This is a project aimed to build a working CI/CD pipeline with the following too
 
 **Putting it all together let's understand the workflow!**
 
+Here is a [link](https://docs.google.com/presentation/d/1Ds2vxI54l72EJfhTaR9f1ep7N6ep9Qd8PY06Zm3W2R0/edit?usp=sharing "ken google slides") to the presentation with more detailed information about the workflow and problems encountered. 
+
 - Developers will commit code to the application's repository on Github.
-- A webhook configured in Github will notify Jenkins and a build of the app will start.
-- The Jenkins pipeline job clones the app's Github repository and start executing the Jenkinsfile.
-- Build step in the Jenkinsfile creates a Docker image(kcharette/ec2-pipeline) using the Dockerfile.
+- A webhook configured in Github and Jenkins will notify Jenkins to start building the application.
+- In the Jenkins pipeline job will start executing the steps listed in the Jenkinsfile.
+- The build step in the Jenkinsfile creates a Docker image(kcharette/ec2-pipeline) using the provided Dockerfile.
 - The image is given a tag and pushed to Docker Hub.
-- Ansible Playbook starts to deploy the Docker image to Kubernetes cluster with app_name, service_name and image_id variable.
-- The Ansible Playbook will read all the Kubernetes definitions for deployment/servive and create required components in the cluster.
+- Ansible playbook starts to deploy the Docker image to a Kubernetes cluster.
+- The Ansible playbook will read all the Kubernetes definitions for deployment/servive and create required components in the cluster.
 
 ## Installing and Configuring Jenkins on AWS  ##
 **Step 1 : Set up Prerequisites (make sure to have ver JDK 1.8+)**
@@ -67,6 +69,7 @@ The video here gives details on how to install Ansible with Jenkins: [https://ww
 ## Creating an Ansible Playbook  ##
 Following this video:
 [https://www.youtube.com/watch?v=NSk0NHkTjDs&t=690s&ab_channel=DeekshithSN](https://www.youtube.com/watch?v=NSk0NHkTjDs&t=690s&ab_channel=DeekshithSN)
+
 
 
 ## Setting up Environment for Kubernetes  ##
