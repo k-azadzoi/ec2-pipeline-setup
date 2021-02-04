@@ -65,5 +65,13 @@ The video here gives details on how to install Ansible with Jenkins: [https://ww
 3. Add the Name and Path to ansible executables directory
 
 ## Creating an Ansible Playbook  ##
+Following this video:
+[https://www.youtube.com/watch?v=NSk0NHkTjDs&t=690s&ab_channel=DeekshithSN](https://www.youtube.com/watch?v=NSk0NHkTjDs&t=690s&ab_channel=DeekshithSN)
+
+
+## Setting up Environment for Kubernetes  ##
+[https://kubernetes.io/docs/tasks/tools/install-kubectl/](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+
 
 ![](https://i.imgur.com/t5J3s02.png)
