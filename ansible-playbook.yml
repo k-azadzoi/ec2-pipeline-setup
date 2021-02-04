@@ -3,8 +3,8 @@
   - name: copy deployment file to kubernetes master 
     copy:
       src: kubernetes.yml
-      dest: /root/
+      dest: /home/ec2-user/root
   - name: delete the previous of kubernetes objects 
-    command: kubectl delete -f /root/deployment.yml
+    command: kubectl delete -f /home/ec2-user/root/kubernetes.yml
   - name: Create a Deployment by reading the definition from a local file
-    command: kubectl apply -f /root/deployment.yml
+    command: kubectl apply -f /home/ec2-user/root/kubernetes.yml
