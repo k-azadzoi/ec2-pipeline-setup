@@ -1,11 +1,13 @@
 - hosts: webservers
   tasks:
-  - name: upgrade all packages
-    yum:
-      name: '*'
-      state: latest
+  - name: Create a Deployment by reading the definition from a local file
+    community.kubernetes.k8s:
+      state: present
+      src: /kubernetes.yml
 
-  - name: ensure git is at the lastest version
-    yum:
-      name: git
-      state: latest
+  - name: >-
+      Read definition file from the Ansible controller file system.
+      If the definition file has been encrypted with Ansible Vault it will automatically be decrypted.
+    community.kubernetes.k8s:
+      state: present
+      definition: "{{ lookup('file', '/kubernetes.yml') | from_yaml }}"
