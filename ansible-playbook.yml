@@ -1,13 +1,11 @@
 - hosts: webservers
   tasks:
-  - name: Create a Deployment by reading the definition from a local file
-    community.kubernetes.k8s:
-      state: present
-      src: /kubernetes.yml
+  - name: create manifest template for kube deploy 
+    template:
+      src: "/kubernetes.yml"
+      dest: "root/kubernetes.yml"
+      register: deploy_template
 
-  - name: >-
-      Read definition file from the Ansible controller file system.
-      If the definition file has been encrypted with Ansible Vault it will automatically be decrypted.
-    community.kubernetes.k8s:
-      state: present
-      definition: "{{ lookup('file', '/kubernetes.yml') | from_yaml }}"
+    # Applys 
+  - name: apply kubernetes deployment
+    shell: "kubectl apply -f root/kubernetes.yml"
