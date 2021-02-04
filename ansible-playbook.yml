@@ -1,11 +1,13 @@
 - hosts: webservers
-  tasks:
-  - name: create manifest template for kube deploy 
-    template:
-      src: "/kubernetes.yml"
-      dest: "root/kubernetes.yml"
-      register: deploy_template
-
-    # Applys 
-  - name: apply kubernetes deployment
-    shell: "kubectl apply -f root/kubernetes.yml"
+  become_user: root
+  tasks: 
+    - name: Copy kubernetes YAML
+      ansible.builtin.copy:
+        src: /kubernetes.yml
+        dest: /etc/kubernetes.yml
+        owner: root
+        mode: 7777
+    - name: Start minikube
+      command: minikube Start
+    - name: Apply kubernetes YAML
+      command: kubetcl create -f /kubernetes.yml
