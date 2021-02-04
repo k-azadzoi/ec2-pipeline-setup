@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ec2-pipeline-container
-        image: kcharette/ec2-pipeline:latest
+        image: kcharette/ec2-pipeline
         resources:
           limits:
             memory: "128Mi"
